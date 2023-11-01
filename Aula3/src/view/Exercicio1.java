@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.Retangulo;
+import javax.swing.ButtonGroup;
 
 public class Exercicio1 extends JFrame {
 
@@ -21,6 +22,7 @@ public class Exercicio1 extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtBase;
 	private JTextField txtAltura;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 
@@ -83,11 +85,13 @@ public class Exercicio1 extends JFrame {
 		txtAltura.setColumns(10);
 		
 		JRadioButton rdbtnArea = new JRadioButton("Área");
+		buttonGroup.add(rdbtnArea);
 		rdbtnArea.setFont(new Font("Tahoma", Font.BOLD, 11));
 		rdbtnArea.setBounds(164, 96, 71, 23);
 		contentPane.add(rdbtnArea);
 
 		JRadioButton rdbtnPerimetro = new JRadioButton("Perímetro");
+		buttonGroup.add(rdbtnPerimetro);
 		rdbtnPerimetro.setFont(new Font("Tahoma", Font.BOLD, 11));
 		rdbtnPerimetro.setBounds(293, 96, 86, 23);
 		contentPane.add(rdbtnPerimetro);

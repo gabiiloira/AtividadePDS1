@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.CalculosMatematicos;
+import javax.swing.ButtonGroup;
 
 
 public class Exercicio2 extends JFrame {
@@ -22,6 +23,7 @@ public class Exercicio2 extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtCampoPrimeiroNum;
 	private JTextField txtCampoSegundoNum;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 
@@ -80,18 +82,22 @@ public class Exercicio2 extends JFrame {
 		txtCampoSegundoNum.setColumns(10);
 
 		JRadioButton rdbtnAdicao = new JRadioButton("+ Adição");
+		buttonGroup.add(rdbtnAdicao);
 		rdbtnAdicao.setBounds(21, 82, 109, 23);
 		contentPane.add(rdbtnAdicao);
 
 		JRadioButton rdbtnSubtracao = new JRadioButton("- Subtração");
+		buttonGroup.add(rdbtnSubtracao);
 		rdbtnSubtracao.setBounds(23, 130, 109, 23);
 		contentPane.add(rdbtnSubtracao);
 
 		JRadioButton rdbtnMultiplicacao = new JRadioButton("* Multiplicação");
+		buttonGroup.add(rdbtnMultiplicacao);
 		rdbtnMultiplicacao.setBounds(23, 175, 109, 23);
 		contentPane.add(rdbtnMultiplicacao);
 
 		JRadioButton rdbtnDivisao = new JRadioButton("/ Divisão");
+		buttonGroup.add(rdbtnDivisao);
 		rdbtnDivisao.setBounds(23, 219, 109, 23);
 		contentPane.add(rdbtnDivisao);
 		
@@ -112,15 +118,15 @@ public class Exercicio2 extends JFrame {
 				String primeironumero = txtCampoPrimeiroNum.getText();
 				Float prinumeroF = Float.valueOf(primeironumero);
 				
-				String segundonumero = txtCampoPrimeiroNum.getText();
+				String segundonumero = txtCampoSegundoNum.getText();
 				Float segnumeroF = Float.valueOf(segundonumero);
 				
 				CalculosMatematicos calc = new CalculosMatematicos();
 				
-				Float adicao = calc.calcularAdicao(segnumeroF, prinumeroF);
-				Float subtracao = calc.calcularSubtracao(segnumeroF, prinumeroF);
-				Float multiplicacao = calc.calcularMultiplicacao(segnumeroF, prinumeroF);
-				Float divisao = calc.calcularDivisao(segnumeroF, segnumeroF);
+				Float adicao = calc.calcularAdicao(prinumeroF, segnumeroF);
+				Float subtracao = calc.calcularSubtracao(prinumeroF, segnumeroF);
+				Float multiplicacao = calc.calcularMultiplicacao(prinumeroF, segnumeroF);
+				Float divisao = calc.calcularDivisao(prinumeroF, segnumeroF);
 				
 				if(rdbtnAdicao.isSelected()) {
 					
