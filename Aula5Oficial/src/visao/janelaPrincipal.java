@@ -253,16 +253,26 @@ public class janelaPrincipal extends JFrame {
 				int posicao = comboBox.getSelectedIndex();
 				
 				
-				if (posicao==0) {
+				if (posicao == 0)
+				{
 					float totalCob = calcC.total(oleoDiselF, quantLitrosF);
 					lblTotalCombustivel.setText(""+totalCob);
-				} else if (posicao==1) {
+					
+				} else if (posicao == 1)
+				
+				{
 					float totalCob = calcC.total(gasComumF, quantLitrosF);
 					lblTotalCombustivel.setText(""+totalCob);
-				} else if (posicao==2) {
+					
+				} 
+				else if (posicao == 2)
+				{
 					float totalCob = calcC.total(gasAditivadaF, quantLitrosF);
 					lblTotalCombustivel.setText(""+totalCob);
-				} else if (posicao==3) {
+					
+				} 
+				else if (posicao == 3)
+				{
 					float totalCob = calcC.total(etanolF, quantLitrosF);
 					lblTotalCombustivel.setText(""+totalCob);
 				}

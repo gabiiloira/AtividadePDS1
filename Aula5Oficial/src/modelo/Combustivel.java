@@ -2,8 +2,8 @@ package modelo;
 
 public class Combustivel {
 	public float total (float comb, float quant) {
-		float tot = comb*quant;
-		return tot;
+		float total = comb * quant;
+		return total;
 	}
 
 }
