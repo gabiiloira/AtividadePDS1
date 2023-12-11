@@ -44,7 +44,7 @@ public class TelaPedidosConfirmacao extends JFrame{
 			setContentPane(contentPane);
 			
 			String nome = "Gabrieli";
-			JLabel lblNome = new JLabel("Excluir pedido"+ nome);
+			JLabel lblNome = new JLabel("Excluir pedido" + nome);
 			
 			JButton btnConfirma = new JButton("Confirmar exclusão");
 			btnConfirma.setBackground(new Color(255, 182, 193));

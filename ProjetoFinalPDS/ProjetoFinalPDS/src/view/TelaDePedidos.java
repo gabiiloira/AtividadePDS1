@@ -21,6 +21,8 @@ import model.Funcionario;
 import model.FuncionarioJTableModel;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class TelaDePedidos extends JFrame {
 
@@ -31,7 +33,7 @@ public class TelaDePedidos extends JFrame {
 	private JTextField txtNome;
 	private JLabel lblEmail;
 	private JTextField txtEmail;
-	ArrayList<Funcionario> listaPessoas = new ArrayList<Funcionario>();
+	ArrayList<Funcionario> listaPedidos = new ArrayList<Funcionario>();
 	private JButton btnAlterar;
 	private JLabel lblQuarto;
 	private JLabel lblData;
@@ -82,18 +84,15 @@ public class TelaDePedidos extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(474, 175, 841, 190);
-		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int linha = table.getSelectedRow();
-				Funcionario pS = listaPessoas.get(linha);
+				Funcionario pS = listaPedidos.get(linha);
 				txtNome.setText(pS.getNome());
 				txtEmail.setText(String.valueOf(pS.getEmail()));
 				txtTelefone.setText(String.valueOf(pS.getTelefone()));
@@ -114,58 +113,74 @@ public class TelaDePedidos extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		lblNome = new JLabel("Nome");
-		lblNome.setBounds(48, 161, 46, 14);
-		contentPane.add(lblNome);
 		
 		lblEmail = new JLabel("Email");
-		lblEmail.setBounds(48, 219, 46, 14);
-		contentPane.add(lblEmail);
 		
 		JLabel lblTelefone = new JLabel("Telefone");
-		lblTelefone.setBounds(48, 279, 86, 14);
-		contentPane.add(lblTelefone);
 		
 		lblQuarto = new JLabel("Quarto");
-		lblQuarto.setBounds(269, 161, 46, 14);
-		contentPane.add(lblQuarto);
 		
 		lblData = new JLabel("Data");
-		lblData.setBounds(48, 329, 46, 14);
-		contentPane.add(lblData);
 		
 		lblDescrição = new JLabel("Descrição do Problema");
-		lblDescrição.setBounds(48, 378, 146, 14);
-		contentPane.add(lblDescrição);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(48, 179, 146, 20);
-		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 		
 		txtEmail = new JTextField();
-		txtEmail.setBounds(48, 238, 146, 20);
-		contentPane.add(txtEmail);
 		txtEmail.setColumns(10);
 		
 		txtQuarto = new JTextField();
-		txtQuarto.setBounds(269, 179, 146, 20);
-		contentPane.add(txtQuarto);
 		txtQuarto.setColumns(10);
 		
 		txtTelefone = new JTextField();
-		txtTelefone.setBounds(48, 298, 146, 20);
-		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
 		
 		txtData = new JTextField();
-		txtData.setBounds(48, 345, 146, 20);
-		contentPane.add(txtData);
 		txtData.setColumns(10);
 		
 		txtDescrição = new JTextField();
-		txtDescrição.setBounds(48, 398, 146, 20);
-		contentPane.add(txtDescrição);
 		txtDescrição.setColumns(10);
+		
+        lblLocalizacao = new JLabel("Localização do Problema");
+		
+		lblPrioridade = new JLabel("Prioridade");
+		
+		lblStatus = new JLabel("Status do Pedido");
+		
+		txtLocalizacao = new JTextField();
+		txtLocalizacao.setColumns(10);
+		
+		txtPrioridade = new JTextField();
+		txtPrioridade.setColumns(10);
+		
+		txtStatus = new JTextField();
+		txtStatus.setColumns(10);
+		
+		JLabel lblTipoServico = new JLabel("Tipo do Serviço");
+		
+		txtTipoServico = new JTextField();
+		txtTipoServico.setColumns(10);
+		
+		txtCodigo = new JTextField();
+		txtCodigo.setColumns(10);
+		
+		JLabel lblCodigo = new JLabel("Código do Pedido");
+		
+		JLabel lblCusto = new JLabel("Custo Estimado");
+		
+		txtCusto = new JTextField();
+		txtCusto.setColumns(10);
+		
+		JLabel lblTempo = new JLabel("Tempo Estimado");
+		
+		txtTempo = new JTextField();
+		txtTempo.setColumns(10);
+		
+		JLabel lblComentario = new JLabel("Cometário");
+		
+		txtComentario = new JTextField();
+		txtComentario.setColumns(10);
 		
 		JButton btnAdicionar = new JButton("ADICIONAR");
 		btnAdicionar.addActionListener(new ActionListener() {
@@ -246,29 +261,25 @@ public class TelaDePedidos extends JFrame {
 				f.setTempo(tempo);
 				f.setComentario(comentario);
 				
-				listaPessoas.add(f);
+				listaPedidos.add(f);
 				
 				atualizarJTableModel();
 				JOptionPane.showMessageDialog(null, "O pedido do funcionario " + f.getNome() + " foi adicionada.");
-
-				
 			}
 		});
-		btnAdicionar.setBounds(279, 520, 108, 23);
-		contentPane.add(btnAdicionar);
 		
 		JButton btnExcluir = new JButton("EXCLUIR");
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int idx_linha = table.getSelectedRow();
-				Funcionario f = listaPessoas.get(idx_linha);
-				String texto = "Você deseja excluir" + f.getNome() + "?";
+				Funcionario f = listaPedidos.get(idx_linha);
+				String texto = "Você deseja excluir " + f.getNome() + "?";
 				String titulo = "Confirmar exclusão";
 				int confirmacao = JOptionPane.showConfirmDialog(null, texto, titulo, JOptionPane.YES_NO_OPTION);
 				
 				if(confirmacao == 0) {
-					listaPessoas.remove(idx_linha);
-					JOptionPane.showMessageDialog(null, "O pedido do funcionario " + f.getNome() + " foi excluído.");
+					listaPedidos.remove(idx_linha);
+					JOptionPane.showMessageDialog(null, "O pedido do funcionario " + f.getNome()  + " foi excluído.");
 				}
 				if(confirmacao == 1) {
 					JOptionPane.showMessageDialog(null, "O pedido do funcionario " + f.getNome() + " não foi excluído.");
@@ -277,13 +288,11 @@ public class TelaDePedidos extends JFrame {
 				limparCampos();
 			}
 		});
-		btnExcluir.setBounds(856, 397, 89, 23);
-		contentPane.add(btnExcluir);
 		
 		btnAlterar = new JButton("ALTERAR");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Funcionario f = listaPessoas.get(table.getSelectedRow());
+				Funcionario f = listaPedidos.get(table.getSelectedRow());
 				String nome = txtNome.getText();
 				String email = txtEmail.getText();
 				
@@ -364,80 +373,6 @@ public class TelaDePedidos extends JFrame {
 				
 			}
 		});
-		btnAlterar.setBounds(661, 397, 89, 23);
-		contentPane.add(btnAlterar);
-		
-		lblLocalizacao = new JLabel("Localização do Problema");
-		lblLocalizacao.setBounds(48, 438, 146, 14);
-		contentPane.add(lblLocalizacao);
-		
-		lblPrioridade = new JLabel("Prioridade");
-		lblPrioridade.setBounds(48, 490, 86, 14);
-		contentPane.add(lblPrioridade);
-		
-		lblStatus = new JLabel("Status do Pedido");
-		lblStatus.setBounds(48, 544, 133, 14);
-		contentPane.add(lblStatus);
-		
-		txtLocalizacao = new JTextField();
-		txtLocalizacao.setBounds(48, 453, 146, 20);
-		contentPane.add(txtLocalizacao);
-		txtLocalizacao.setColumns(10);
-		
-		txtPrioridade = new JTextField();
-		txtPrioridade.setBounds(48, 508, 146, 20);
-		contentPane.add(txtPrioridade);
-		txtPrioridade.setColumns(10);
-		
-		txtStatus = new JTextField();
-		txtStatus.setBounds(48, 559, 146, 20);
-		contentPane.add(txtStatus);
-		txtStatus.setColumns(10);
-		
-		JLabel lblTipoServico = new JLabel("Tipo do Serviço");
-		lblTipoServico.setBounds(269, 219, 118, 14);
-		contentPane.add(lblTipoServico);
-		
-		txtTipoServico = new JTextField();
-		txtTipoServico.setBounds(269, 238, 146, 20);
-		contentPane.add(txtTipoServico);
-		txtTipoServico.setColumns(10);
-		
-		txtCodigo = new JTextField();
-		txtCodigo.setBounds(269, 298, 146, 20);
-		contentPane.add(txtCodigo);
-		txtCodigo.setColumns(10);
-		
-		JLabel lblCodigo = new JLabel("Código do Pedido");
-		lblCodigo.setBounds(269, 279, 118, 14);
-		contentPane.add(lblCodigo);
-		
-		JLabel lblCusto = new JLabel("Custo Estimado");
-		lblCusto.setBounds(269, 329, 118, 14);
-		contentPane.add(lblCusto);
-		
-		txtCusto = new JTextField();
-		txtCusto.setBounds(269, 345, 146, 20);
-		contentPane.add(txtCusto);
-		txtCusto.setColumns(10);
-		
-		JLabel lblTempo = new JLabel("Tempo Estimado");
-		lblTempo.setBounds(269, 378, 118, 14);
-		contentPane.add(lblTempo);
-		
-		txtTempo = new JTextField();
-		txtTempo.setBounds(269, 398, 146, 20);
-		contentPane.add(txtTempo);
-		txtTempo.setColumns(10);
-		
-		JLabel lblComentario = new JLabel("Cometário");
-		lblComentario.setBounds(269, 438, 96, 14);
-		contentPane.add(lblComentario);
-		
-		txtComentario = new JTextField();
-		txtComentario.setBounds(269, 453, 146, 20);
-		contentPane.add(txtComentario);
-		txtComentario.setColumns(10);
 		
 		JButton btnFechar = new JButton("FECHAR");
 		btnFechar.addActionListener(new ActionListener() {
@@ -446,26 +381,198 @@ public class TelaDePedidos extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnFechar.setBounds(1046, 397, 89, 23);
-		contentPane.add(btnFechar);
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(TelaDePedidos.class.getResource("/Imagem/Listagem.png")));
-		lblNewLabel_1.setBounds(0, 0, 1370, 14);
-		contentPane.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(TelaDePedidos.class.getResource("/Imagem/Manutenção.png")));
-		lblNewLabel_2.setBounds(0, 42, 1370, 78);
-		contentPane.add(lblNewLabel_2);
+		
+		JButton btnLimpar = new JButton("LIMPAR");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				txtNome.setText("");
+				txtEmail.setText("");
+				txtTelefone.setText("");
+				txtData.setText("");
+				txtDescrição.setText("");
+				txtLocalizacao.setText("");
+				txtPrioridade.setText("");
+				txtStatus.setText("");
+				txtQuarto.setText("");
+				txtTipoServico.setText("");
+				txtCodigo.setText("");
+				txtCusto.setText("");
+				txtTempo.setText("");
+				txtComentario.setText("");
+				
+			}
+		});
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 1370, GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 1370, GroupLayout.PREFERRED_SIZE)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(lblNome, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+					.addGap(175)
+					.addComponent(lblQuarto, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblTelefone, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblData, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtData, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
+					.addGap(75)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtQuarto, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblTipoServico, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtTipoServico, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblCodigo, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtCodigo, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblCusto, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtCusto, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
+					.addGap(59)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 865, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(lblDescrição, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(75)
+					.addComponent(lblTempo, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(txtDescrição, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(75)
+					.addComponent(txtTempo, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(246)
+					.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+					.addGap(106)
+					.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+					.addGap(101)
+					.addComponent(btnFechar, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(lblLocalizacao, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(75)
+					.addComponent(lblComentario, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(txtLocalizacao, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(75)
+					.addComponent(txtComentario, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(lblPrioridade, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(txtPrioridade, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(90)
+					.addComponent(btnAdicionar, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(lblStatus, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(48)
+					.addComponent(txtStatus, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE)
+					.addGap(90)
+					.addComponent(btnLimpar, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+					.addGap(28)
+					.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+					.addGap(41)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNome)
+						.addComponent(lblQuarto))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(4)
+							.addComponent(txtNome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(20)
+							.addComponent(lblEmail)
+							.addGap(5)
+							.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(21)
+							.addComponent(lblTelefone)
+							.addGap(5)
+							.addComponent(txtTelefone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(11)
+							.addComponent(lblData)
+							.addGap(2)
+							.addComponent(txtData, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(4)
+							.addComponent(txtQuarto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(20)
+							.addComponent(lblTipoServico)
+							.addGap(5)
+							.addComponent(txtTipoServico, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(21)
+							.addComponent(lblCodigo)
+							.addGap(5)
+							.addComponent(txtCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(11)
+							.addComponent(lblCusto)
+							.addGap(2)
+							.addComponent(txtCusto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+					.addGap(13)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblDescrição)
+						.addComponent(lblTempo))
+					.addGap(5)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(1)
+							.addComponent(txtDescrição, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(1)
+							.addComponent(txtTempo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnAlterar)
+						.addComponent(btnExcluir)
+						.addComponent(btnFechar))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblLocalizacao)
+						.addComponent(lblComentario))
+					.addGap(1)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtLocalizacao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtComentario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(17)
+					.addComponent(lblPrioridade)
+					.addGap(4)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtPrioridade, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(12)
+							.addComponent(btnAdicionar)))
+					.addGap(1)
+					.addComponent(lblStatus)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(1)
+							.addComponent(txtStatus, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnLimpar)))
+		);
+		contentPane.setLayout(gl_contentPane);
 		
 	}
 	
 	public void atualizarJTableModel() {
-		table.setModel(new FuncionarioJTableModel(listaPessoas));
+		table.setModel(new FuncionarioJTableModel(listaPedidos));
 
 	}
-	
+	 
 	public void limparCampos() {
 		txtNome.setText("");
 		txtEmail.setText("");

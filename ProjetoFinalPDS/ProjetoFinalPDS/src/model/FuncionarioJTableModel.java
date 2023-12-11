@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 public class FuncionarioJTableModel extends AbstractTableModel{
 
 		private ArrayList<Funcionario> lista;
-		private String[] colunas ={"Nome", "Email", "Telefone", "Data", "Descrição", "Local", "Prioridade", "Status", "Quarto", "Serviço", "Código", "Custo", "Tempo", "Comentário"};
+		private String[] colunas ={" Nome ", " Email ", " Telefone ", " Data ", " Descrição ", " Local ", " Prioridade ", " Status ", " Quarto ", " Serviço ", " Código ", " Custo ", " Tempo ", " Comentário "};
 		
 		public FuncionarioJTableModel(ArrayList<Funcionario> lista) {
 			this.lista=lista;
