@@ -1,0 +1,544 @@
+body, h1, h2, h3, a, ul{
+    padding: 0px; /*remove todas as laterais, entorno pai*/
+    margin: 0px;
+}
+
+/*barra branca*/
+.menu{
+    width: 100%;
+    height: 1px;
+    background: white;
+    padding: 20px 0px 50px 50px; 
+    position: fixed;
+}
+
+.logo{
+    display: block; /*a logo ocupando todo o espaço horizontal, parte de cima da tela, lado esquerdo*/
+    float: left;
+    margin-top: 3px;
+}
+
+.menu-nubank{
+    max-width: 100%; /*largura maxima dos elementos*/
+    float: left;
+}
+
+/*para colocar as palavras do menu de lado*/
+.menu-nubank li{
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.fa{
+    margin-left: 10px;
+}
+
+/*todas as palavras sao definidas assim*/
+.menu-nubank a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin-left: 33px;
+    font-family: "Cabin", sans-serif;
+    font-weight: bold;
+}
+
+/*pega todos os elementos li da class login*/
+.login li{ 
+    display: inline-block;  /*exibidos como blocos, mas ficam flutuando como elementos inline*/
+    margin-top: 28px;
+    font-family: 'Cabin', sans-serif; 
+    font-weight: bold; 
+    font-size: 18px;
+    padding-right: 70px;
+    margin-top: 10px;
+}
+
+.login{
+    float: right; 
+}
+
+/*cor do login*/
+.login a{
+    text-decoration: none; /*nao subllinhe*/
+    color: #820ad1;
+}
+
+/*Inicio da Imagem após o topo*/
+/*Imagem fundo peguei direto da pasta*/
+.imagem{
+    background: url('../img/fundoreal.png') no-repeat center center;
+    background-size: cover; /*posicao da imagem de fundo em relação ao elemento pai*/
+    height: 865px; 
+
+}
+.imagem h1{
+    padding: 300px 0 0 0; 
+    margin-left: 220px;
+    margin-bottom: 10px;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.imagem h2{
+    margin-left: 220px;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.form{
+    box-sizing: border-box; 
+    background: white;
+    max-width: 330px;
+    height: 330px;
+    float: right;
+    border-radius: 8px; 
+    text-align: left;
+    padding: 20px;
+    margin-top: -250px;
+    margin-right: 40px;
+}
+
+/*texto dentro do label*/
+.form h3{ 
+    color: black;
+    font-size: 22px;
+    margin-bottom: 80px; 
+    font-family: 'Cabin', sans-serif;
+}
+
+/*campo cpf*/
+.name{
+    color: #585858;
+    font-size: 18px;
+    font-family: 'Cabin', sans-serif; /*fonte*/
+}
+
+/*botao continuar*/
+.bto{
+    background: rgb(202, 201, 201);
+    display: flex;
+    justify-content: space-between;
+    border: 0px;
+    align-items: center;
+    color:white;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+/*campo para digitar sem ser quadradao/ ele sumiu*/
+/* 0; remover as bordas, fica so a de baixo*/
+.campo{
+    width: 100%; /*largura do elemento*/
+    border-left: 0; 
+    border-right: 0;
+    border-top: 0;
+}
+    /*Final da imagem apos o topo*/
+
+    /*SEGUNDA PARTE*/
+.parte2{
+    height: 600px;
+    background: rgb(241, 241, 241);
+}
+
+.parte2 h2{
+    text-align: left;
+    font-family: 'Cabin', sans-serif;
+    font-size: 50px;
+    color: #820ad1;
+    margin-left: 100px;
+    margin-top: 150px;
+    font-weight: bold;
+}
+.parte2 h2 a{
+    text-decoration: none;
+}
+
+.parte2 h3{
+    text-align: left;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    font-weight: bold;
+    color: black;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+.img-maquina{
+    float: left;
+    width: 50%;
+    margin-top: 98px;
+}
+
+.cartao{
+    float: left;
+    width: 50%;
+}
+
+.link2{
+    margin-left: 100px;
+    text-decoration: none;
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+}
+
+    /*TERCEIRA PARTE*/
+.parte3{
+    height: 425px;
+    background: #31044e;
+}
+
+.parte3 h2{
+    text-align: left;
+    font-family: 'Cabin', sans-serif;
+    font-size: 50px;
+    color: white;
+    margin-left: 50px;
+    margin-top: 98px;
+    font-weight: bold;
+}
+.parte3 h2 a{
+    text-decoration: none;
+}
+
+.parte3 h3{
+    text-align: left;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    font-weight: bold;
+    color: white;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.img-ultravio{
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+.violeta{
+    float: right;
+    width: 50%;
+}
+
+.link3{
+    margin-left: 50px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+}
+
+
+    /*QUARTA PARTE*/
+.parte4{
+    height: 800px;
+    background: white;
+}
+
+.parte4 h2{
+    text-align: left;
+    margin-top: 100px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 50px;
+    color: black;
+    margin-left: 180px;
+}
+
+.parte4 h2 a{
+    text-decoration: none;
+}
+
+
+/*COMECA PIX*/
+.img-pix{  /*icone do pix*/
+    float: right;
+    margin-right: 460px;
+}
+
+.pix h3{
+    text-align: left;
+    color: black;
+    font-family: 'Cabin', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 790px;;
+}
+
+.pix h4{
+    text-align: left;
+    color: black;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    margin-left: 790px;
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+
+/*COMECA BOLETO*/
+.img-boleto{  /*icone do boleto*/
+    float: right;
+    margin-right: 460px;
+}
+
+.boleto h3{
+    text-align: left;
+    color: black;
+    font-family: 'Cabin', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 790px;
+}
+
+.boleto h4{
+    text-align: left;
+    color: black;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    margin-left: 790px;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+/*COMECA PARCELA*/
+.img-parcela{  /*icone da parcela*/
+    float: right;
+    margin-right: 460px;
+}
+
+.parcela h3{
+    text-align: left;
+    color: black;
+    font-family: 'Cabin', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 790px;
+}
+
+.parcela h4{
+    text-align: left;
+    color: black;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    margin-left: 790px;
+    margin-top: 15px;
+    font-weight: normal;
+}
+
+    /*QUINTA PARTE*/
+.parte5{
+    background: url('../img/img5.png') no-repeat center center;
+    background-size: cover; /*posicao da imagem de fundo em relação ao elemento pai*/
+    height: 865px; 
+}
+
+.parte5 h2{
+    padding: 337px 0 0 0;
+    margin-left: 300px;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+}
+
+.link5{
+    margin-left: 300px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+}
+
+
+    /*SEXTA PARTE*/
+.parte6{
+    background: url('../img/img6.png') no-repeat center center;
+    background-size: cover; /*posicao da imagem de fundo em relação ao elemento pai*/
+    height: 865px; 
+}
+
+.parte6 h2{
+    padding: 337px 0 0 0;
+    margin-left: 300px;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+}
+
+.link6{
+    margin-left: 300px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+}
+
+
+ /*SÉTIMA PARTE*/
+ .parte7{
+    background: url('../img/img7.png') no-repeat center center;
+    background-size: cover; /*posicao da imagem de fundo em relação ao elemento pai*/
+    height: 865px; 
+}
+
+.parte7 h2{
+    padding: 337px 0 0 0;
+    margin-left: 300px;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-family: 'Cabin', sans-serif;
+    color: white;
+}
+
+.link7{
+    margin-left: 300px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+}
+
+
+/*RODAPE INICIO*/
+.rodape1{
+    width: 100%;
+    height: 530px;
+    background-color: #111111;
+}
+
+/*SEGUNDO RODAPE PARTE PRETA*/
+.rodape2{
+    width: 100%;
+    height: 530px;
+    background-color: #111111;
+}
+
+/*CONTINUAÇÃO DO RODAPE INICIO*/
+.part-1{
+    width: 23%;
+    float: left;    
+}
+
+.part-2{
+    width: 23%;
+    float: left;    
+}
+
+.part-3{
+    width: 23%;
+    float: left;    
+}
+
+.part-4{
+    width: 23%;
+    float: left;    
+}
+
+/*AQUI TODAS AS PARTES FICARAM IGUAIS*/
+/*as das duas classes a rodape1 e rodape2*/
+.part-1, .part-2, .part-3, .part-4{
+    margin-top: 150px;
+}
+
+.part-1 a, .part-2 a, .part-3 a, .part-4 a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.part-1 li, .part-2 li, .part-3 li, .part-4 li {
+    padding-left: 8%;
+    list-style: none;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Cabin', sans-serif;
+}
+
+.part-1 h2, .part-2 h2, .part-3 h2, .part-4 h2 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 8%;
+    color: white;
+    margin-bottom: 35px;
+}
+
+/*para as palavras ficarem roxo quando o cursor passa por cima*/
+.part-1 li a:hover{
+    color: #820ad1;
+}
+
+.part-2 li a:hover{
+    color: #820ad1;
+}
+
+.part-3 li a:hover{
+    color: #820ad1;
+}
+
+.part-4 li a:hover{
+    color: #820ad1;
+}
+
+
+/*RODAPE INICIO 3*/
+.rodape3{
+    width: 100%;
+    height: 110px;
+    background-color: #111111;
+    border-top: solid 1px #191919;
+    border-bottom: solid 1px #191919;
+}
+
+.rodape4{  /*esse rodape esta vazio só para ter uma quabra de linha no site*/
+    height: 200px;
+    background: #111111;
+}
+
+.imgrodape{  /*icone da nubank*/
+    padding: 30px;
+    float: left;
+}
+
+.rodape3 p {  /*© 2023 essa parte do texto da logo, fim do site*/
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 30px;
+    float: left;
+}
+
+/*APLICATIVOS NO CANTO DO SITE*/
+.redes{
+    float: right;
+    list-style: none;
+    color: white;
+}
+
+.redes li{
+    display: inline-block;
+    padding-right: 30px;
+    padding: 30px;
+}
+
+.redes li:hover{
+    color: #820ad1;
+}
